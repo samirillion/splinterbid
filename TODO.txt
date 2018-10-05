@@ -1,6 +1,0 @@
-Next:
-Make it so players can look at current state while its not their turn
-Have client check if card is a valid card
-Allow clients to reconnect, somehow
-Support bidding
-Support scoring
