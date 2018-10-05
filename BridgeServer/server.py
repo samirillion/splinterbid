@@ -10,8 +10,8 @@ ACTIVE_GAMES = {}  # dict to track active Games
 
 
 def updateAllUsersInRoom(gameID):
-    game = ACTIVE_GAMES[gameID]
-    send(game.serializeGameState(), json=True, room=gameID)
+    game = ACTIVE_GAMES[int(gameID)]
+    emit('game_state', game.serializeGameState(), json=True, room=int(gameID))
 
 
 def whichGameIsUserIn(userID):
@@ -31,6 +31,7 @@ def leaveGame(userID):
 
 # Returns False if join failed, along with the failure message
 def joinGame(userID, gameID):
+    error = None
     game = ACTIVE_GAMES.get(gameID)
     if game is None:
         error = 'Tried to join game which does not exist.'
@@ -39,19 +40,22 @@ def joinGame(userID, gameID):
     if activeGame is not None:
         error = 'Failed to join game. Already in one.'
 
-    error = game.join(userID)
     if error is None:
-        join_room(gameID)
+        possibleError = game.join(userID)
+        if possibleError is None:
+            join_room(gameID)
 
-        # Send the whole room the game state
-        emit(player_num, game.getPlayerNum(userID))
-        send(game.serializeGameState(), room=gameID)
+            # Tell the player their player number
+            emit('player_num', {'playerNum': game.getPlayerNum(userID)})
 
-        return None
+            # Send the whole room the game state
+            updateAllUsersInRoom(gameID)
+
+            return None
+        else:
+            error = possibleError
 
     return error
-
-
 
 
 @app.route('/')

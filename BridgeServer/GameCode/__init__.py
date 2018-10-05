@@ -37,7 +37,7 @@ class GameRoom(object):
         if error is None:
             self.__connectedUsers.add(userID)
 
-        return None
+        return error
 
     def getPlayerNum(self, userID):
         playerNum = self.__game.getPlayerNumByUserID(userID)

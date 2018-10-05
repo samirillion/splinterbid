@@ -31,10 +31,10 @@ socket.on('initial_connection', function(msg) {
     }
 });
 
-socket.on('message', function(msg) {
-    console.log('Message receieved');
-    var obj = JSON.parse(msg);
-    console.log(obj);
+socket.on('game_state', function(msg) {
+    var gameState = JSON.parse(msg);
+    console.log('Message receieved.');
+    console.log(gameState);
 });
 
 function makeJoinRoomFunction(gameID) {
