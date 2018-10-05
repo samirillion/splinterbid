@@ -25,7 +25,7 @@ socket.on('player_num', function(msg) {
 socket.on('initial_connection', function(msg) {
     var gameIDs = msg['gameIDs'];
     createButton('Make Room!', createRoom);
-    for (i=0; i < gameIDs.length; i++){
+    for (var i=0; i < gameIDs.length; i++){
         var gameID = gameIDs[i];
         createButton('Join Room' + gameID, makeJoinRoomFunction(gameID));
     }
