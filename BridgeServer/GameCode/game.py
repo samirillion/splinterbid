@@ -38,7 +38,11 @@ class Game(object):
         return ret
 
     def addPlayer(self, userID):
+        playerNum = self.getPlayerNumByUserID(userID)
         error = None
+        if playerNum is not None:
+            error = 'Already a player in here'
+
         for playerNum, user in self.__userToPlayerMapping.iteritems():
             if user is None:
                 self.__userToPlayerMapping[playerNum] = userID
