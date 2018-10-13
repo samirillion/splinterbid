@@ -1,0 +1,12 @@
+.main-logo {
+  width: 75px;
+  padding: 5px;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+body {
+
+}
+.theme--light.v-btn:not(.v-btn--icon):not(.v-btn--flat) {
+  border-radius: 0;
+}

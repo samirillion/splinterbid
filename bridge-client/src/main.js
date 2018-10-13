@@ -1,4 +1,6 @@
+import '@babel/polyfill'
 import Vue from 'vue'
+import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -7,7 +9,6 @@ import io from 'socket.io-client'
 /**
  * Super cool description
  */
- console.log('http://' + document.domain + ':' + location.port)
 var socket = io.connect('http://localhost:5000');
 var playerNum = null;
 
