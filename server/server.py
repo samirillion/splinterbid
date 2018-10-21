@@ -4,7 +4,9 @@ from GameCode import GameRoom
 
 
 # Initialize Flask
-app = Flask(__name__)
+app = Flask(__name__,
+            static_folder = "../client/dist/js",
+            template_folder = "../client/dist")
 socketio = SocketIO(app)
 ACTIVE_GAMES = {}  # dict to track active Games
 
@@ -58,10 +60,10 @@ def joinGame(userID, gameID):
     return error
 
 
-@app.route('/')
-def index():
-    """Serve the index HTML"""
-    return render_template('index.html')
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return render_template("index.html")
 
 
 @app.route('/client.js')

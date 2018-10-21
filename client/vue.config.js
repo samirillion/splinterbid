@@ -1,4 +1,5 @@
-// vue.config.js
+// const path = require("path");
+
 module.exports = {
-  outputDir : '../../dist'
+  indexPath : '../../server/templates/index.html'
 }
