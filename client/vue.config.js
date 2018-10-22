@@ -1,5 +1,7 @@
-// const path = require("path");
+const path = require("path");
 
 module.exports = {
-  indexPath : '../../server/templates/index.html'
+  outputDir: '../dist',
+  assetsDir: 'static',
+  indexPath: 'index.html'
 }

@@ -22,6 +22,7 @@ export default new Router({
       path: '/common-room',
       name: 'CommonRoom',
       component: () => import( './views/CommonRoom.vue')
-    }
+    },
+    { path: '*', component: './components/NotFound' }
   ]
 })
