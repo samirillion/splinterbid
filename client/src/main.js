@@ -11,7 +11,7 @@ import io from 'socket.io-client'
  */
 var socket = io.connect('http://localhost:5000');
 var playerNum = null;
-console.log("cool");
+console.log("coool");
 
 socket.on('connect', function() {
     console.log('Websocket connected!');

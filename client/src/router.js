@@ -23,6 +23,6 @@ export default new Router({
       name: 'CommonRoom',
       component: () => import( './views/CommonRoom.vue')
     },
-    { path: '*', component: './components/NotFound' }
+    // { path: '*', component: './components/NotFound' }
   ]
 })
