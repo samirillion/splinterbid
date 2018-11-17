@@ -1,15 +1,20 @@
 <template>
   <section class="section common-room">
       <img alt="splinterbid logo" class="main-logo" src="../assets/logo.png">
+      <SingleCard />
       <br>
   </section>
 </template>
 
 <script>
 // @ is an alias to /src
+import SingleCard from '@/components/SingleCard'
 
 export default {
-  name: 'CommonRoom',
+  name: 'MyTable',
+  components: {
+    SingleCard
+  }
 }
 </script>
 

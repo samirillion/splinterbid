@@ -10,7 +10,7 @@
             <v-spacer></v-spacer>
             <v-toolbar-items>
                 <v-btn flat>Join Game</v-btn>
-                <v-btn flat :to="{name: 'NewTable'}">Create Game</v-btn>
+                <v-btn flat :to="{name: 'SingleTable'}">Create Game</v-btn>
                 <v-btn :to="{name: 'login'}" color="primary">Login/Register</v-btn>
             </v-toolbar-items>
         </v-toolbar>

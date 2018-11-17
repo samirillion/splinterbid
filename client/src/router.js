@@ -25,8 +25,8 @@ export default new Router({
     },
     {
       path: '/table',
-      name: 'NewTable',
-      component: () => import( './views/NewTable.vue')
+      name: 'MyTable',
+      component: () => import( './views/MyTable.vue')
     },
     // { path: '*', component: './components/NotFound' }
   ]

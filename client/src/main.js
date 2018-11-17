@@ -51,6 +51,7 @@ socket.on('initial_connection', function(msg) {
     }
 });
 
+// for debugging purposes
 socket.on('message', function(msg) {
     console.log('Message receieved');
     var obj = JSON.parse(msg);
