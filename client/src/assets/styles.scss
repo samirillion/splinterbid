@@ -7,6 +7,10 @@
 body {
 
 }
+p, h1, h2, h3, h4, h5, h6, .v-btn__content, .v-toolbar__title {
+  letter-spacing: .4px;
+  text-transform: uppercase;
+}
 .theme--light.v-btn:not(.v-btn--icon):not(.v-btn--flat) {
   border-radius: 0;
 }

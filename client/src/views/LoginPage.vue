@@ -37,7 +37,6 @@
       submit () {
         if (this.$refs.form.validate()) {
           // Native form submission is not yet supported
-          console.log('cool')
           this.router.push({ path: 'home' })
         }
       },

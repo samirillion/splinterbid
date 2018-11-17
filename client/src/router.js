@@ -23,6 +23,11 @@ export default new Router({
       name: 'CommonRoom',
       component: () => import( './views/CommonRoom.vue')
     },
+    {
+      path: '/table',
+      name: 'NewTable',
+      component: () => import( './views/NewTable.vue')
+    },
     // { path: '*', component: './components/NotFound' }
   ]
 })

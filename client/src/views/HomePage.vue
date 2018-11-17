@@ -3,7 +3,7 @@
     <div class="header-wrapper">
       <img alt="splinterbid logo" class="main-logo" src="../assets/logo.png">
       <HelloWorld msg="Welcome to Splinter Bid"/>
-      <v-btn color="success" :to="{name: 'login'}">Play Now</v-btn>
+      <v-btn color="primary" :to="{name: 'NewRoom'}">Play Now</v-btn>
     </div>
   </section>
 </template>

@@ -1,17 +1,28 @@
 import '@babel/polyfill'
 import Vue from 'vue'
-import './plugins/vuetify'
+import Vuetify from 'vuetify'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import io from 'socket.io-client'
+import 'vuetify/dist/vuetify.min.css'
+
+Vue.use(Vuetify, {
+  theme: {
+    primary: '#00F064',
+    secondary: '#408A5E',
+    info: '#5B75F0',
+    error: '#F8F1F9',
+    success: '#00F064',
+    warning: '#F6F2F0'
+  }
+})
 
 /**
  * Super cool description
  */
 var socket = io.connect('http://localhost:5000');
 var playerNum = null;
-console.log("coool");
 
 socket.on('connect', function() {
     console.log('Websocket connected!');
