@@ -1,8 +1,8 @@
 from random import shuffle as randomShuffle
 
-from ..constants import SUIT, VALUE, PLAYERS
-from card import Card
-from hand import Hand
+from constants import SUIT, VALUE, PLAYERS
+from Structures.card import Card
+from Structures.hand import Hand
 
 
 class Deck(object):

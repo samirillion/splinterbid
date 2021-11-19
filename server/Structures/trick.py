@@ -1,4 +1,4 @@
-from ..constants import PLAYERS
+from constants import PLAYERS
 from . import Card
 
 
