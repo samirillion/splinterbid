@@ -5,8 +5,8 @@ from GameCode import GameRoom
 
 # Initialize Flask
 app = Flask(__name__,
-            static_folder = "../dist/static",
-            template_folder = "../dist")
+            static_folder = "../public",
+            template_folder = "../views")
 socketio = SocketIO(app)
 ACTIVE_GAMES = {}  # dict to track active Games
 
