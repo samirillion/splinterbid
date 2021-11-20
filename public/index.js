@@ -47,16 +47,33 @@ function build_your_hand(hand_data) {
   var your_hand = document.querySelector(".bottom");
   hand_data.hand.map((element, index) => {
     var card = document.createElement("div");
-    var denomination = document.createTextNode(element[0]);
-    card.appendChild(denomination);
-    card.className = "card suit-" + element[1];
+    card.className = "card " + generate_class(element);
+    card.addEventListener("click", (event) => {
+      console.log(event.target);
+    });
     element[2] = card;
     your_hand.appendChild(card);
   });
 }
 
+function generate_class(card_data) {
+
+  denomination = card_data[0];
+  
+  var suit = "spades";
+  if (card_data[1] == 0) {
+    suit = "clubs";
+  } else if (card_data[1] == 1) {
+    suit = "diamonds";
+  } else if (card_data[1] == 2) {
+    suit = "hearts";
+  }
+
+  return suit + "-" + denomination;
+}
+
 function run() {
-  var your_number = "1";
+  var your_number = "0";
   build_your_hand(gameState.players[your_number]);
 }
 

@@ -2,45 +2,244 @@
 
 * {
   box-sizing: border-box;
-  letter-spacing: .3px;
+  letter-spacing: 0.3px;
 }
 .board {
   display: flex;
   flex-wrap: wrap;
 }
-.top, .middle, .bottom, .left, .center, .right {
+.top,
+.middle,
+.bottom,
+.left,
+.center,
+.right {
   height: auto;
   min-height: 28vh;
-  border: 1px solid black;
   width: 33%;
   float: left;
   padding: 4px 5px;
   margin: 2px;
 }
-.left.middle, .right.middle {
+.left.middle,
+.right.middle {
   width: calc(20% - 4px);
 }
 .center.middle {
   width: calc(60% - 4px);
 }
-.bottom {
-  width: 100%;
-}
-
 .top.left {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.suit {
-  font-size: 33px;
-  border: 1px solid black;
-  padding-left: 3px;
-  margin-bottom: 5px;
+.bottom {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+.bottom:before {
+  content: "";
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
+  width: 100%;
+  background: rgba(235, 235, 235, 0.85);
+  -webkit-filter: blur(10px) saturate(2);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card {
+  width: 115px;
+  height: 165px;
+  position: relative;
+  background-image: url(./img/card-sprite.png);
+  background-size: 440%;
+  float: left;
+  margin-right: -50px;
+  /* border-radius: 5%; */
+}
+.you .card:hover {
+  cursor: pointer;
+  background-color: black;
+}
+/* two of clubs */
+.clubs-0 {
+  background-position: -21px -12px;
+}
+/* three of clubs, etc. */
+.clubs-1 {
+  background-position: -21px -177px;
+  margin-right: -50px;
+}
+.clubs-2 {
+  background-position: -21px -345px;
+}
+.clubs-3 {
+  background-position: -21px -492px;
+  background-size: 420%;
+}
+.clubs-4 {
+  background-position: -21px -691px;
+}
+.clubs-5 {
+  background-position: -16px -863px;
+}
+.clubs-6 {
+  background-position: -17px -980px;
+  background-size: 420%;
+}
+.clubs-7 {
+  background-position: -16px -1204px;
+}
+.clubs-8 {
+  background-position: -15px -1288px;
+  background-size: 409%;
+}
+.clubs-9 {
+  background-position: -21px -1574px;
+}
+.clubs-10 {
+  background-position: -18px -1685px;
+  background-size: 420%;
+}
+.clubs-11 {
+  background-position: -18px -1953px;
+}
+/* Ace of Clubs */
+.clubs-12 {
+  background-position: -18px -2126px;
+}
+
+
+.diamonds-0 {
+  background-position: -142px -12px;
+}
+.diamonds-1 {
+  background-position: -142px -177px;
+}
+.diamonds-2 {
+  background-position: -140px -345px;
+}
+.diamonds-3 {
+  background-position: -132px -492px;
+  background-size: 420%;
+}
+.diamonds-4 {
+  background-position: -142px -691px;
+}
+.diamonds-5 {
+  background-position: -142px -863px;
+}
+.diamonds-6 {
+  background-position: -132px -984px;
+  background-size: 420%;
+}
+.diamonds-7 {
+  background-position: -142px -1204px;
+}
+.diamonds-8 {
+  background-position: -126px -1288px;
+  background-size: 409%;
+}
+.diamonds-9 {
+  background-position: -142px -1574px;
+}
+.diamonds-10 {
+  background-position: -134px -1685px;
+  background-size: 420%;
+}
+.diamonds-11 {
+  background-position: -142px -1953px;
+}
+.diamonds-12 {
+  background-position: -142px -2126px;
+}
+
+.hearts-0 {
+  background-position: -259px -12px;
+}
+.hearts-1 {
+  background-position: -263px -177px;
+}
+.hearts-2 {
+  background-position: -263px -345px;
+}
+.hearts-3 {
+  background-position: -245px -492px;
+  background-size: 420%;
+}
+.hearts-4 {
+  background-position: -259px -691px;
+}
+.hearts-5 {
+  background-position: -259px -863px;
+}
+.hearts-6 {
+  background-position: -248px -993px;
+  background-size: 423%;
+}
+.hearts-7 {
+  background-position: -259px -1204px;
+}
+.hearts-8 {
+  background-position: -259px -1391px;
+  /* background-size: 433%; */
+}
+.hearts-9 {
+  background-position: -245px -1502px;
+  background-size: 420%;
+}
+.hearts-10 {
+  background-position: -254px -1727px;
+  background-size: 430%;
+}
+.hearts-11 {
+  background-position: -257px -1953px;
+}
+.hearts-12 {
+  background-position: -259px -2127px;
+}
+.spades-0 {
+  background-position: -375px -12px;
+}
+.spades-1 {
+  background-position: -375px -177px;
+}
+.spades-2 {
+  background-position: -377px -349px;
+}
+.spades-3 {
+  background-position: -377px -522px;
+}
+.spades-4 {
+  background-position: -377px -691px;
+}
+.spades-5 {
+  background-position: -377px -861px;
+}
+.spades-6 {
+  background-position: -377px -1034px;
+}
+.spades-7 {
+  background-position: -377px -1204px;
+}
+.spades-8 {
+  background-position: -377px -1391px;
+}
+.spades-9 {
+  background-position: -359px -1504px;
+  background-size: 420%;
+}
+.spades-10 {
+  background-position: -358px -1686px;
+  background-size: 420%;
+}
+.spades-11 {
+  background-position: -355px -1862px;
+  background-size: 420%;
+}
+.spades-12 {
+  background-position: -356px -2032px;
+  background-size: 420%;
 }
