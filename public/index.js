@@ -45,12 +45,17 @@
 
 function build_your_hand(hand_data) {
   var your_hand = document.querySelector(".bottom");
-  hand_data.hand.map((element, index) => {
+  hand_data.hand.map(function(element) {
+
+    // Create the card object
     var card = document.createElement("div");
+
+    // Add a custom class name for the image sprite and stuff: clubs-1, etc.
     card.className = "card " + generate_class(element);
-    card.addEventListener("click", (event) => {
-      console.log(event.target);
-    });
+
+    // Add an event listener for a first click
+    card.addEventListener("click", card_click);
+
     element[2] = card;
     your_hand.appendChild(card);
   });
@@ -72,8 +77,19 @@ function generate_class(card_data) {
   return suit + "-" + denomination;
 }
 
+function card_click(e) {
+  // If the card has been clicked
+  if ("translateY(-60px)" == this.style.transform) {
+    this.style.transform = "translateY(-40vh)";
+
+  } else {
+    this.style.transform = "translateY(-60px)";
+    console.log(this.getBoundingClientRect());
+  }
+}
+
 function run() {
-  var your_number = "0";
+  var your_number = "3";
   build_your_hand(gameState.players[your_number]);
 }
 
