@@ -12,7 +12,7 @@ h1 {
   font-family: "Syne Mono", monospace;
 }
 body {
-  background-image: url("./img/table.jpg");
+  /* background-image: url("./img/table.jpg"); */
   background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;
