@@ -1,4 +1,5 @@
-/* this file is loaded by index.html and styles the page */
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,6 +9,7 @@ h1 {
   display: inline-block;
   background-color: rgba(235,235,235,.8);
   margin: 0;
+  font-family: "Syne Mono", monospace;
 }
 body {
   background-image: url("./img/table.jpg");
@@ -50,211 +52,227 @@ body {
   margin: 0 auto;
   position: relative;
   text-align: center;
-}
-.bottom:before {
-  content: "";
-  height: 200px;
-  width: 80%;
-  background: rgba(235, 235, 235, 0.85);
-  -webkit-filter: blur(10px) saturate(2);
-  position: absolute;
-  top: 0;
-  left: 10%;
+  perspective: 1000px;
 }
 .card {
   width: 115px;
   height: 165px;
   position: relative;
-  background-image: url(./img/card-sprite.png);
-  background-size: 440%;
   display: inline-block;
   margin: 0 -60px 0 0px;
   /* border-radius: 5%; */
   /* top: 28px; */
   transition: .4s all;
 }
+.front, .back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 5px silver);
+  border-radius: 12px;
+  backface-visibility: hidden;
+  transition: all 0.5s;
+}
+.front {
+  background-image: url(./img/card-sprite.png);
+  background-size: 440%;
+}
+.clicked .front {
+  transform: rotateY(180deg);
+}
+.clicked .back {
+  transform: rotateY(0deg);
+}
+.back {
+  transform: rotateY(-180deg);
+  background-image: url(./img/card-sprite.png);
+  background-position: -22px -2310px;
+  background-size: 440%;
+}
 .you .card:hover {
   cursor: pointer;
   background-color: rgba(235,0,0,.4);
 }
 /* two of clubs */
-.clubs-0 {
+.clubs-0 .front {
   background-position: -21px -12px;
 }
 /* three of clubs, etc. */
-.clubs-1 {
+.clubs-1 .front {
   background-position: -21px -177px;
   margin-right: -50px;
 }
-.clubs-2 {
+.clubs-2 .front {
   background-position: -21px -345px;
 }
-.clubs-3 {
+.clubs-3 .front {
   background-position: -21px -492px;
   background-size: 420%;
 }
-.clubs-4 {
+.clubs-4 .front {
   background-position: -21px -691px;
 }
-.clubs-5 {
+.clubs-5 .front {
   background-position: -16px -863px;
 }
-.clubs-6 {
+.clubs-6 .front {
   background-position: -17px -980px;
   background-size: 420%;
 }
-.clubs-7 {
+.clubs-7 .front {
   background-position: -16px -1204px;
 }
-.clubs-8 {
+.clubs-8 .front {
   background-position: -15px -1288px;
   background-size: 409%;
 }
-.clubs-9 {
+.clubs-9 .front {
   background-position: -21px -1574px;
 }
-.clubs-10 {
+.clubs-10 .front {
   background-position: -18px -1685px;
   background-size: 420%;
 }
-.clubs-11 {
+.clubs-11 .front {
   background-position: -18px -1953px;
 }
 /* Ace of Clubs */
-.clubs-12 {
+.clubs-12 .front {
   background-position: -18px -2126px;
 }
 
 
-.diamonds-0 {
+.diamonds-0 .front {
   background-position: -142px -12px;
 }
-.diamonds-1 {
+.diamonds-1 .front {
   background-position: -142px -177px;
 }
-.diamonds-2 {
+.diamonds-2 .front {
   background-position: -140px -345px;
 }
-.diamonds-3 {
+.diamonds-3 .front {
   background-position: -132px -492px;
   background-size: 420%;
 }
-.diamonds-4 {
+.diamonds-4 .front {
   background-position: -142px -691px;
 }
-.diamonds-5 {
+.diamonds-5 .front {
   background-position: -142px -863px;
 }
-.diamonds-6 {
+.diamonds-6 .front {
   background-position: -132px -984px;
   background-size: 420%;
 }
-.diamonds-7 {
+.diamonds-7 .front {
   background-position: -142px -1204px;
 }
-.diamonds-8 {
+.diamonds-8 .front {
   background-position: -126px -1288px;
   background-size: 409%;
 }
-.diamonds-9 {
+.diamonds-9 .front {
   background-position: -142px -1574px;
 }
-.diamonds-10 {
+.diamonds-10 .front {
   background-position: -134px -1685px;
   background-size: 420%;
 }
-.diamonds-11 {
+.diamonds-11 .front {
   background-position: -142px -1953px;
 }
-.diamonds-12 {
+.diamonds-12 .front {
   background-position: -142px -2126px;
 }
 
-.hearts-0 {
+.hearts-0 .front {
   background-position: -259px -12px;
 }
-.hearts-1 {
+.hearts-1 .front {
   background-position: -263px -177px;
 }
-.hearts-2 {
+.hearts-2 .front {
   background-position: -263px -345px;
   /* top: -100px; */
 }
-.hearts-3 {
+.hearts-3 .front {
   background-position: -245px -492px;
   background-size: 420%;
 }
-.hearts-4 {
+.hearts-4 .front {
   background-position: -259px -691px;
 }
-.hearts-5 {
+.hearts-5 .front {
   background-position: -259px -863px;
 }
-.hearts-6 {
+.hearts-6 .front {
   background-position: -248px -993px;
   background-size: 423%;
 }
-.hearts-7 {
+.hearts-7 .front {
   background-position: -259px -1204px;
 }
-.hearts-8 {
+.hearts-8 .front {
   background-position: -259px -1391px;
   /* background-size: 433%; */
 }
-.hearts-9 {
+.hearts-9 .front {
   background-position: -245px -1502px;
   background-size: 420%;
 }
-.hearts-10 {
+.hearts-10 .front {
   background-position: -254px -1727px;
   background-size: 430%;
 }
-.hearts-11 {
+.hearts-11 .front {
   background-position: -257px -1953px;
 }
-.hearts-12 {
+.hearts-12 .front {
   background-position: -259px -2127px;
 }
-.spades-0 {
+.spades-0 .front {
   background-position: -375px -12px;
 }
-.spades-1 {
+.spades-1 .front {
   background-position: -375px -177px;
 }
-.spades-2 {
+.spades-2 .front {
   background-position: -377px -349px;
 }
-.spades-3 {
+.spades-3 .front {
   background-position: -377px -522px;
 }
-.spades-4 {
+.spades-4 .front {
   background-position: -377px -691px;
 }
-.spades-5 {
+.spades-5 .front {
   background-position: -377px -861px;
 }
-.spades-6 {
+.spades-6 .front {
   background-position: -377px -1034px;
 }
-.spades-7 {
+.spades-7 .front {
   background-position: -377px -1204px;
 }
-.spades-8 {
+.spades-8 .front {
   background-position: -377px -1391px;
 }
-.spades-9 {
+.spades-9 .front {
   background-position: -359px -1504px;
   background-size: 420%;
 }
-.spades-10 {
+.spades-10 .front {
   background-position: -358px -1686px;
   background-size: 420%;
 }
-.spades-11 {
+.spades-11 .front {
   background-position: -355px -1862px;
   background-size: 420%;
 }
-.spades-12 {
-  background-position: -356px -2032px;
+.spades-12 .front {
+  background-position: -360px -2032px;
   background-size: 420%;
 }
