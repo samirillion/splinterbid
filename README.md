@@ -1,4 +1,4 @@
-# Splinter Bid: Bridge is a Patnership Game
+# Splinter Bid: Bridge is a Partnership Game
 
 Splinter Bid is probably the best thing to happen to the Bridge since Whist.
 
