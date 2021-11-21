@@ -17,6 +17,39 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+a.svg-anchor-tag {
+  position: fixed;
+  display: inline-block;
+  width: 200px;
+  display: inline-block;
+  top: 50%;
+  left: 200px;
+}
+a.svg-anchor-tag:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+object.create-table {
+  width: 100%;
+}
+.splinter-bid-marquee {
+  width: 50%;
+  position: fixed;
+  left: 30%;
+}
+.splinter-bid-marquee:hover {
+  cursor: pointer;
+}
+.join-table-form {
+  width: 35%;
+  position: fixed;
+  left: 35%;
+  bottom: 5%;
+}
 .board {
   display: flex;
   flex-wrap: wrap;

@@ -1,14 +1,16 @@
 from flask import Flask, render_template, send_from_directory, request
 from flask_socketio import SocketIO, join_room, leave_room, emit, send
 from GameCode import GameRoom
+import sqlite3
 
 
 # Initialize Flask
 app = Flask(__name__,
-            static_folder = "../public",
-            template_folder = "../views")
+            static_folder="../public",
+            template_folder="../views")
 socketio = SocketIO(app)
-ACTIVE_GAMES = {}  # dict to track active Games
+con = sqlite3.connect('splinter-bid.db')
+ACTIVE_GAMES = sqlite3.connect('splinter-bid.db')  # dict to track active Games
 
 
 def updateAllUsersInRoom(gameID):
@@ -66,6 +68,11 @@ def catch_all(path):
     return render_template("index.html")
 
 
+@app.route('/table')
+def render_table():
+    return render_template("table.html")
+
+
 @app.route('/client.js')
 def serveJavascript():
     return send_from_directory('../BridgeClient', 'client.js')
@@ -119,7 +126,8 @@ def on_join(data):
 
 @socketio.on('connect')
 def connect():
-    print('Client %s connected!' % request.sid)  # TODO: Create a better association, in case user disconnects
+    # TODO: Create a better association, in case user disconnects
+    print('Client %s connected!' % request.sid)
     gameIDs = []
     for room in ACTIVE_GAMES:
         gameIDs.append(room)
