@@ -56,9 +56,8 @@ object.create-table {
   height: 100vh;
 }
 .top,
-.middle,
-.left,
 .center,
+.left,
 .right {
   height: auto;
   min-height: 28vh;
@@ -67,18 +66,15 @@ object.create-table {
   padding: 4px 5px;
   margin: 2px;
 }
-.left.middle,
-.right.middle {
-  width: calc(20% - 4px);
-}
-.center.middle {
-  width: calc(60% - 4px);
-}
-.top.left {
+.top {
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.center {
+  background: #ddd;
 }
 .bottom {
   width: 80%;

@@ -7,7 +7,7 @@ import sqlite3
 # Initialize Flask
 app = Flask(__name__,
             static_folder="../public",
-            template_folder="../views")
+            template_folder="../public/views")
 socketio = SocketIO(app)
 con = sqlite3.connect('splinter-bid.db')
 ACTIVE_GAMES = sqlite3.connect('splinter-bid.db')  # dict to track active Games
@@ -71,11 +71,6 @@ def catch_all(path):
 @app.route('/table')
 def render_table():
     return render_template("table.html")
-
-
-@app.route('/client.js')
-def serveJavascript():
-    return send_from_directory('../BridgeClient', 'client.js')
 
 
 @socketio.on('play_card')

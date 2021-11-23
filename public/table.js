@@ -1,5 +1,41 @@
-function build_hand(hand_data) {
-  var your_hand = document.querySelector(".bottom");
+function build_hands(gameState) {
+
+  var your_position = gameState.your_position
+  var hands = gameState.players
+
+  if (your_position == 0) {
+    build_hand(hands[your_position], ".bottom")
+    build_hand(hands[2], ".top")
+    build_hand(hands[1], ".left")
+    build_hand(hands[3], ".right")
+  }
+
+  if (your_position == 1) {
+    build_hand(hands[your_position], ".bottom")
+    build_hand(hands[3], ".top")
+    build_hand(hands[2], ".left")
+    build_hand(hands[0], ".right")
+  }
+
+  if (your_position == 2) {
+    build_hand(hands[your_position], ".bottom")
+    build_hand(hands[0], ".top")
+    build_hand(hands[3], ".left")
+    build_hand(hands[1], ".right")
+  }
+
+  if (your_position == 3) {
+    build_hand(hands[your_position], ".bottom")
+    build_hand(hands[1], ".top")
+    build_hand(hands[0], ".left")
+    build_hand(hands[2], ".right")
+  }
+
+}
+function build_hand(hand_data, selector) {
+
+  var the_hand = document.querySelector(selector);
+
   hand_data.hand.map(function (element) {
     // Create the card object
     var card = document.createElement("div");
@@ -26,7 +62,7 @@ function build_hand(hand_data) {
     card.addEventListener("click", card_click);
 
     element[2] = card;
-    your_hand.appendChild(card);
+    the_hand.appendChild(card);
 
   });
 }
@@ -59,10 +95,9 @@ function card_click(e) {
   }
 }
 
-function run() {
-  var your_number = "0";
+function run(gameState) {
   
-  build_hand(gameState.players[your_number]);
+  build_hands(gameState)
 }
 
-run();
+run(gameState);

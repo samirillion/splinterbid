@@ -1,4 +1,27 @@
+/**
+ * 0 == 'clubs'
+ * 1 == 'diamonds'
+ * 2 == 'hearts'
+ * 3 == 'spades'
+ *
+ * denominations count from 2-A, starting with 0
+ *
+ * bids count from 1-7, starting with 1
+ *
+ * bids and denominations precede
+ */
 const gameState = {
+  bids: [
+    [1, 1],
+    [1, 3],
+    "pass",
+    [2, 3],
+    "pass",
+    [4, 3],
+    "pass",
+    "pass",
+    "pass",
+  ],
   currentTrick: {
     firstPlayer: "None",
     isTrumped: "False",
@@ -13,8 +36,9 @@ const gameState = {
     trick: {},
     trumpSuit: 3,
   },
+  your_position: "2",
   players: {
-    0: {
+    "0": {
       hand: [
         [1, 0],
         [4, 0],
@@ -31,7 +55,7 @@ const gameState = {
         [12, 3],
       ],
     },
-    1: {
+    "1": {
       hand: [
         [0, 0],
         [9, 0],
@@ -48,7 +72,7 @@ const gameState = {
         [9, 3],
       ],
     },
-    2: {
+    "2": {
       hand: [
         [3, 0],
         [8, 0],
@@ -65,7 +89,7 @@ const gameState = {
         [11, 3],
       ],
     },
-    3: {
+    "3": {
       hand: [
         [2, 0],
         [5, 0],
