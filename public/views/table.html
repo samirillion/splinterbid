@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./public/style.css" />
 
     <!-- import the webpage's client-side javascript file -->
-    <script src="./public/examples/game-state-example.js" defer></script>
+    <script src="./public/examples/state-machine.js" defer></script>
     <script src="./public/helpers.js" defer></script>
     <script src="./public/table.js" defer></script>
   </head>
@@ -24,13 +24,19 @@
 
     <main>
       <section class="board">
-        <div class="top">
+        <div class="top hand"></div>
+        <div class="middle">
+          <div class="left hand"></div>
+          <div class="center">
+            <div class="bids">
+              
+            </div>
+            <div class="target">
+            </div>
+          </div>
+          <div class="right hand"></div>
         </div>
-        <div class="left"></div>
-        <div class="center"></div>
-        <div class="right"></div>
-        <div class="bottom">
-        </div>
+        <div class="bottom hand"></div>
       </section>
     </main>
   </body>

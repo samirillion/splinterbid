@@ -32,6 +32,7 @@ function build_hands(gameState) {
   }
 
 }
+
 function build_hand(hand_data, selector) {
 
   var the_hand = document.querySelector(selector);
@@ -84,14 +85,19 @@ function generate_class(card_data) {
 
 function card_click(e) {
   // If the card has been clicked
-  var clicked_once = this.className.search("clicked");
+  var clicked_once = this.className.search("once");
 
   if (-1 == clicked_once) {
-    this.classList.add("clicked");
-    this.style.transform = "translateY(-60px)";
+    this.classList.add("once");
   } else {
-    this.classList.remove("clicked");
-    this.style.transform = "translateY(-40vh) translateX(-80px)";
+    this.classList.add("twice");
+    
+    let card_rect = this.getBoundingClientRect();
+    let target_rect = document.querySelector(".target").getBoundingClientRect();
+    let translate_x = target_rect.right - card_rect.right
+    let translate_y = target_rect.bottom - card_rect.top
+
+    this.style.transform = "translateY(" + translate_y + "px) translateX(" + translate_x + "px)";
   }
 }
 

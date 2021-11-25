@@ -7,7 +7,7 @@
 }
 h1 {
   display: inline-block;
-  background-color: rgba(235,235,235,.8);
+  background-color: rgba(235, 235, 235, 0.8);
   margin: 0;
   font-family: "Syne Mono", monospace;
 }
@@ -55,26 +55,20 @@ object.create-table {
   flex-wrap: wrap;
   height: 100vh;
 }
-.top,
-.center,
-.left,
-.right {
+.middle {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.hand,
+.center {
   height: auto;
   min-height: 28vh;
   width: 33%;
   float: left;
   padding: 4px 5px;
   margin: 2px;
-}
-.top {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.center {
-  background: #ddd;
+  padding: 30px;
 }
 .bottom {
   width: 80%;
@@ -83,36 +77,52 @@ object.create-table {
   text-align: center;
   perspective: 1000px;
 }
+.top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.right,
+.left {
+  width: 25%;
+}
+.center {
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.target {
+  height: 115px;
+  width: 115px;
+  border: 1px solid black;
+}
 .card {
   width: 115px;
   height: 165px;
   position: relative;
   display: inline-block;
-  margin: 0 -60px 0 0px;
+  margin: -30px -40px -30px -40px;
   /* border-radius: 5%; */
   /* top: 28px; */
-  transition: .4s all;
+  transition: 0.2s all;
 }
-.front, .back {
+.front,
+.back {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 5px silver);
+  filter: drop-shadow(0 0 5px #EEE);
   border-radius: 12px;
   backface-visibility: hidden;
-  transition: all 0.5s;
+  transition: all 0.2s;
 }
 .front {
   background-image: url(./img/card-sprite.png);
   background-size: 440%;
-}
-.clicked .front {
-  transform: rotateY(180deg);
-}
-.clicked .back {
-  transform: rotateY(0deg);
 }
 .back {
   transform: rotateY(-180deg);
@@ -120,9 +130,56 @@ object.create-table {
   background-position: -22px -2310px;
   background-size: 440%;
 }
-.you .card:hover {
+.left .front,
+.right .front,
+.top .front {
+  transform: rotateY(180deg);
+}
+.left .back,
+.right .back,
+.top .back {
+  transform: rotateY(0deg);
+}
+.once {
+  z-index: 1;
+}
+.bottom .once {
+  transform: translateY(-10px);
+}
+.once .front {
+  transform: rotateY(0deg);
+}
+.once .back {
+  transform: rotateY(180deg);
+}
+.card:hover {
   cursor: pointer;
-  background-color: rgba(235,0,0,.4);
+  background-color: rgba(235, 0, 0, 0.4);
+}
+.card.twice .front {
+  animation: flipFront .3s;
+}
+.card.twice .back {
+  animation: flipBack .3s;
+}
+/* .twice  */
+@keyframes flipFront {
+  from {
+    transform: translateY(180deg);
+  }
+
+  to {
+    transform: translateY(0deg);
+  }
+}
+@keyframes flipBack {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(180deg);
+  }
 }
 /* two of clubs */
 .clubs-0 .front {
@@ -171,7 +228,6 @@ object.create-table {
 .clubs-12 .front {
   background-position: -18px -2126px;
 }
-
 
 .diamonds-0 .front {
   background-position: -142px -12px;
@@ -266,7 +322,7 @@ object.create-table {
   background-position: -375px -12px;
 }
 .spades-1 .front {
-  background-position: -375px -177px;
+  background-position: -378px -178px;
 }
 .spades-2 .front {
   background-position: -377px -349px;
