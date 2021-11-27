@@ -4,6 +4,10 @@
 * {
   box-sizing: border-box;
   letter-spacing: 0.4px;
+  font-family: "Syne Mono", monospace;
+}
+hr {
+  margin: 0;
 }
 h1 {
   display: inline-block;
@@ -54,17 +58,18 @@ object.create-table {
   display: flex;
   flex-wrap: wrap;
   height: 100vh;
-}
+} 
 .middle {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  height: 40vh;
 }
 .hand,
 .center {
   height: auto;
   min-height: 28vh;
-  width: 33%;
+  width: 50%;
   float: left;
   padding: 4px 5px;
   margin: 2px;
@@ -85,13 +90,13 @@ object.create-table {
 }
 .right,
 .left {
-  width: 25%;
+  width: 22%;
 }
 .center {
-  background: #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .target {
   height: 115px;
@@ -104,8 +109,6 @@ object.create-table {
   position: relative;
   display: inline-block;
   margin: -30px -40px -30px -40px;
-  /* border-radius: 5%; */
-  /* top: 28px; */
   transition: 0.2s all;
 }
 .front,
@@ -155,31 +158,6 @@ object.create-table {
 .card:hover {
   cursor: pointer;
   background-color: rgba(235, 0, 0, 0.4);
-}
-.card.twice .front {
-  animation: flipFront .3s;
-}
-.card.twice .back {
-  animation: flipBack .3s;
-}
-/* .twice  */
-@keyframes flipFront {
-  from {
-    transform: translateY(180deg);
-  }
-
-  to {
-    transform: translateY(0deg);
-  }
-}
-@keyframes flipBack {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(180deg);
-  }
 }
 /* two of clubs */
 .clubs-0 .front {
@@ -360,4 +338,150 @@ object.create-table {
 .spades-12 .front {
   background-position: -360px -2032px;
   background-size: 420%;
+}
+
+
+.bids {
+  width: 90%;
+  height: 95%;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+  filter: drop-shadow(0 0 5px #EEE);
+  z-index: 2;
+  display: flex;
+  /* justify-content: center; */
+  border: 1px solid silver;
+}
+
+.bids .bidding-panel {
+  width: 37%;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  /* border: 2px solid black; */
+  background: silver;
+}
+
+.bid {
+  min-width: 15%;
+  text-align: center;
+  font-size: 25px;
+  color: transparent;
+  height: 45px;
+  background-position: -8px -3px;
+  margin-right: 2px;
+  background-color: white;
+}
+button:disabled,
+button[disabled] {
+  opacity: .8;
+}
+.bid:hover {
+  cursor: pointer;
+}
+.pass {
+  background: #eee;
+}
+.suit, .nt {
+  width: 20%;
+  background: white;
+}
+.bid.hearts, .bid.diamonds {
+  background-color: hsl(0deg 100% 90%);
+}
+.dbl, .rdbl, .pass {
+  filter: invert(1);
+  background-color: white;
+}
+.pass {
+  width: 50%;
+}
+.bid-title {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.quarter {
+  width: 25%;
+  float: left;
+  text-align: center;
+  border-bottom: 1px solid silver
+}
+.bids-wrapper {
+  width: 62%;
+  overflow: scroll;
+}
+.bids-header {
+  width: 100%;
+  height: auto;
+}
+.bid {
+  background-image: url("./img/bids.png");
+  background-size: 475px;
+  background-repeat: no-repeat;
+  height: 45px;
+  background-position: 0px -4px;
+  margin-right: 2px;
+  padding: 0;
+  width: 45px;
+}
+.two {
+  background-position: -37px -2px;
+}
+.three {
+  background-position: -70px -1px;
+}
+.four {
+  background-position: -103px 0px;
+}
+.five {
+  background-position: -137px 1px;
+}
+.six {
+  background-position: -172px 1px;
+  width: 30px;
+}
+.seven {
+  background-position: -205px -3px;
+}
+.pass {
+  background-position: -391px -1px;
+  width: 74px;
+}
+
+button.pass.bid {}
+.bid.clubs {
+  background-position: 0px -29px;
+  background-size: 260px;
+}
+.bid.diamonds {
+  background-position: -59px -29px;
+  background-size: 300px;
+}
+.bid.hearts {
+  background-position: -118px -31px;
+  background-size: 300px;
+}
+.bid.spades {
+  background-position: -157px -36px;
+  background-size: 283px;
+}
+.bid.nt {
+  background-position: -224px -33px;
+  background-size: 292px;
+  width: 65px;
+}
+.bid.dbl {
+  background-position: -250px -3px;
+  width: 66px;
+}
+.bid.rdbl {
+  background-position: -313px -3px;
+  width: 80px;
 }

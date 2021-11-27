@@ -63,14 +63,13 @@ def joinGame(userID, gameID):
 
 
 @app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
 def catch_all(path):
     return render_template("index.html")
 
 
-@app.route('/table')
+@app.route('/table/')
 def render_table():
-    return render_template("table.html")
+    return render_template("table.html", **locals())
 
 
 @socketio.on('play_card')
