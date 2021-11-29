@@ -63,12 +63,10 @@ object.create-table {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  height: 40vh;
 }
 .hand,
 .center {
   height: auto;
-  min-height: 28vh;
   width: 50%;
   float: left;
   padding: 4px 5px;
@@ -85,7 +83,7 @@ object.create-table {
 .top {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
 }
 .right,
@@ -97,6 +95,7 @@ object.create-table {
   align-items: center;
   justify-content: center;
   position: relative;
+  max-height: 50vh;
 }
 .target {
   height: 115px;
@@ -353,10 +352,11 @@ object.create-table {
   filter: drop-shadow(0 0 5px #EEE);
   z-index: 2;
   display: flex;
-  /* justify-content: center; */
   border: 1px solid silver;
 }
-
+.hidden {
+  display: none;
+}
 .bids .bidding-panel {
   width: 37%;
   padding: 5px;
@@ -444,7 +444,7 @@ button[disabled] {
   background-position: -137px 1px;
 }
 .six {
-  background-position: -172px 1px;
+  background-position: -178px 1px;
   width: 30px;
 }
 .seven {

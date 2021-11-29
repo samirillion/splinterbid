@@ -57,21 +57,28 @@ const CARDS = [
 
 const NUMBERS = ["1", "2", "3", "4", "5", "6", "7"];
 const SUITS = ["C", "D", "H", "S", "NT"];
-/**
- * 0 == 'clubs'
- * 1 == 'diamonds'
- * 2 == 'hearts'
- * 3 == 'spades'
- *
- * denominations count from 2-A, starting with 0
- *
- * bids count from 1-7, starting with 1
- *
- * bids and denominations precede
- */
+
 const STATE = {
   latest_bid: function () {
     return STATE.bids.at(-1);
+  },
+  bid_stage() {
+    if (STATE.passes() < 3) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  passes() {
+    var passes = 0;
+    STATE.bids.forEach(function (bid) {
+      if (bid == "pass") {
+        passes += 1;
+      } else {
+        passes = 0;
+      }
+    });
+    return passes;
   },
   get_legal_bids() {
     var legal_bids = [];
@@ -79,25 +86,27 @@ const STATE = {
     var latest_bid = STATE.latest_bid();
 
     // if there is no "high bid"
-    if (!highest_bid) {
-      legal_bids = ["pass"].concat(NUMBERS);
-    } else {
-      // If the latest bid is just a number, like "2"
-      if (NUMBERS.includes(latest_bid)) {
-        // if the latest bid is just a number
-        if (highest_bid[0] == latest_bid[0]) {
-          legal_bids = SUITS.slice(SUITS.indexOf(highest_bid[1]) + 1);
-        } else {
-          legal_bids = SUITS;
-        }
+    if (STATE.bid_stage()) {
+      if (!highest_bid) {
+        legal_bids = ["pass"].concat(NUMBERS);
       } else {
-        var legal_numbers;
-        if ("NT" !== highest_bid[1]) {
-          legal_numbers = NUMBERS.slice(NUMBERS.indexOf(highest_bid[0]));
+        // If the latest bid is just a number, like "2"
+        if (NUMBERS.includes(latest_bid)) {
+          // if the latest bid is just a number
+          if (highest_bid[0] == latest_bid[0]) {
+            legal_bids = SUITS.slice(SUITS.indexOf(highest_bid[1]) + 1);
+          } else {
+            legal_bids = SUITS;
+          }
         } else {
-          legal_numbers = NUMBERS.slice(NUMBERS.indexOf(highest_bid[0]) + 1);
+          var legal_numbers;
+          if ("NT" !== highest_bid[1]) {
+            legal_numbers = NUMBERS.slice(NUMBERS.indexOf(highest_bid[0]));
+          } else {
+            legal_numbers = NUMBERS.slice(NUMBERS.indexOf(highest_bid[0]) + 1);
+          }
+          legal_bids = ["pass", "double", "redouble"].concat(legal_numbers);
         }
-        legal_bids = ["pass", "double", "redouble"].concat(legal_numbers);
       }
     }
     return legal_bids;
@@ -131,17 +140,6 @@ const STATE = {
     } else {
       return false;
     }
-  },
-  passes() {
-    var passes = 0;
-    STATE.bids.forEach(function (bid) {
-      if (bid == "pass") {
-        passes += 1;
-      } else {
-        passes = 0;
-      }
-    });
-    return passes;
   },
   to_double() {
     return true;
