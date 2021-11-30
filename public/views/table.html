@@ -8,11 +8,15 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta id="table-data" content="{{table_data}}">
 
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="../public/style.css" />
 
     <!-- import the webpage's client-side javascript file -->
+    <script src="../public/js/constants.js" defer></script>
+    <script src="../public/js/state.js" defer></script>
+    <script src="../public/js/helpers.js" defer></script>
     <script src="../public/js/table.js" defer></script>
   </head>
   <body>
@@ -23,18 +27,19 @@
 
     <main>
       <section id="board" class="board">
+        <div id="top-left"></div>
         <div id="top" class="hand"></div>
         <div class="middle">
-          <div id="left" class="left"></div>
+          <div id="left" class="hand"></div>
           <div class="center">
             <div id="bids" class="bids">
               <div class="bids-wrapper">
                 <div class="bids-header">
                   <h3 class="bid-title">Bids</h3>
-                  <div class="quarter direction north">North</div>
-                  <div class="quarter direction east">East</div>
-                  <div class="quarter direction south">South</div>
-                  <div class="quarter direction west">West</div>
+                  <div class="quarter direction">North</div>
+                  <div class="quarter direction">East</div>
+                  <div class="quarter direction">South</div>
+                  <div class="quarter direction">West</div>
                 </div>
                 <div class="the-bids"></div>
               </div>

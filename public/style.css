@@ -72,16 +72,54 @@ object.create-table {
   padding: 4px 5px;
   margin: 2px;
   padding: 30px;
+  position: relative;
+}
+.hand.dealer:before {
+  content: "Dl";
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  top: 0;
+  right: -30px;
+  background: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 50% 50% 0;
+}
+.hand:after {
+  content: "N";
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  top: 0;
+  right: 0;
+  border-radius: 50% 0 0 50%;
+  background: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hand.west:after {
+  content: "W";
+}
+.hand.east:after {
+  content: "E";
+}
+.hand.south:after {
+  content: "S";
 }
 #bottom {
-  width: 50%;
-  /* margin: 0 auto; */
   position: relative;
   text-align: center;
   perspective: 1000px;
 }
 #top {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   align-items: end;
   justify-content: center;
@@ -360,18 +398,17 @@ object.create-table {
 #board .minimized .bids-wrapper {
   width: 100%;
 } 
-#board #bottom-left {
+#bottom-left, #top-left {
   position: relative;
   width: 25%;
-  /* height: 150px; */
-  /* clear: both; */
-  /* height: 0; */
 }
 #board #bids.minimized {
   top: 0;
   left: 0;
   position: absolute;
   height: 150px;
+  margin-right: 0;
+  width: 100%;
 }
 #bids .bidding-panel {
   width: 37%;
@@ -427,7 +464,7 @@ button[disabled] {
   width: 25%;
   float: left;
   text-align: center;
-  border-bottom: 1px solid silver
+  border-bottom: 1px solid silver;
 }
 .bids-wrapper {
   width: 62%;
@@ -471,7 +508,6 @@ button[disabled] {
   width: 74px;
 }
 
-button.pass.bid {}
 .bid.clubs {
   background-position: 0px -29px;
   background-size: 260px;
