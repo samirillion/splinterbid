@@ -73,21 +73,21 @@ object.create-table {
   margin: 2px;
   padding: 30px;
 }
-.bottom {
-  width: 80%;
-  margin: 0 auto;
+#bottom {
+  width: 50%;
+  /* margin: 0 auto; */
   position: relative;
   text-align: center;
   perspective: 1000px;
 }
-.top {
+#top {
   width: 100%;
   display: flex;
   align-items: end;
   justify-content: center;
 }
-.right,
-.left {
+#right,
+#left {
   width: 22%;
 }
 .center {
@@ -123,35 +123,35 @@ object.create-table {
   transition: all 0.2s;
 }
 .front {
-  background-image: url(./img/card-sprite.png);
+  background-image: url(https://assets.codepen.io/1579014/card-sprite.png);
   background-size: 440%;
 }
 .back {
   transform: rotateY(-180deg);
-  background-image: url(./img/card-sprite.png);
+  background-image: url(https://assets.codepen.io/1579014/card-sprite.png);
   background-position: -22px -2310px;
   background-size: 440%;
 }
-.left .front,
-.right .front,
-.top .front {
+#left .front,
+#right .front,
+#top .front {
   transform: rotateY(180deg);
 }
-.left .back,
-.right .back,
-.top .back {
+#left .back,
+#right .back,
+#top .back {
   transform: rotateY(0deg);
 }
 .once {
   z-index: 1;
 }
-.bottom .once {
+#board .bottom .once {
   transform: translateY(-10px);
 }
-.once .front {
+#board .once .front {
   transform: rotateY(0deg);
 }
-.once .back {
+#board .once .back {
   transform: rotateY(180deg);
 }
 .card:hover {
@@ -340,7 +340,7 @@ object.create-table {
 }
 
 
-.bids {
+#bids {
   width: 90%;
   height: 95%;
   margin: 0 auto;
@@ -354,10 +354,26 @@ object.create-table {
   display: flex;
   border: 1px solid silver;
 }
-.hidden {
+#board .minimized .bidding-panel {
   display: none;
 }
-.bids .bidding-panel {
+#board .minimized .bids-wrapper {
+  width: 100%;
+} 
+#board #bottom-left {
+  position: relative;
+  width: 25%;
+  /* height: 150px; */
+  /* clear: both; */
+  /* height: 0; */
+}
+#board #bids.minimized {
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 150px;
+}
+#bids .bidding-panel {
   width: 37%;
   padding: 5px;
   display: flex;
@@ -422,7 +438,7 @@ button[disabled] {
   height: auto;
 }
 .bid {
-  background-image: url("./img/bids.png");
+  background-image: url("https://assets.codepen.io/1579014/bids.png");
   background-size: 475px;
   background-repeat: no-repeat;
   height: 45px;

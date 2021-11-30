@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="../public/style.css" />
 
     <!-- import the webpage's client-side javascript file -->
-    <script src="../public/js/state-machine.js" defer></script>
-    <script src="../public/js/helpers.js" defer></script>
     <script src="../public/js/table.js" defer></script>
   </head>
   <body>
@@ -24,12 +22,12 @@
     </header>
 
     <main>
-      <section class="board">
-        <div class="top hand"></div>
+      <section id="board" class="board">
+        <div id="top" class="hand"></div>
         <div class="middle">
-          <div class="left hand"></div>
+          <div id="left" class="left"></div>
           <div class="center">
-            <div class="bids">
+            <div id="bids" class="bids">
               <div class="bids-wrapper">
                 <div class="bids-header">
                   <h3 class="bid-title">Bids</h3>
@@ -64,9 +62,11 @@
             </div>
             <div class="target"></div>
           </div>
-          <div class="right hand"></div>
+          <div id="right" class="hand"></div>
         </div>
-        <div class="bottom hand"></div>
+        <div id="bottom-left">
+        </div>
+        <div id="bottom" class="hand"></div>
       </section>
     </main>
   </body>
