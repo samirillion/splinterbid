@@ -12,7 +12,7 @@ class Game(object):
         self.__currentTrick = Trick(self.__trumpSuit)
         self.__lastTrick = Trick(self.__trumpSuit)
         self.__turn = PLAYERS.NORTH
-        for x in xrange(PLAYERS.TOTAL_PLAYERS):
+        for x in range(PLAYERS.TOTAL_PLAYERS):
             self.__players[x] = Player(self.__deck.getStartingHand(x))
             self.__userToPlayerMapping[x] = None
 

@@ -27,14 +27,14 @@ class Deck(object):
         hand = Hand()
         startingCard = self.HAND_SIZE * playerNumber
         endingCard = startingCard + self.HAND_SIZE
-        for x in xrange(startingCard, endingCard):
+        for x in range(startingCard, endingCard):
             hand.addCard(self.__deck[x])
 
         return hand
 
     def getAllStartingHands(self):
         allHands = []
-        for x in xrange(PLAYERS.TOTAL_PLAYERS):
+        for x in range(PLAYERS.TOTAL_PLAYERS):
             allHands.append(self.getStartingHand(x))
 
         return allHands
