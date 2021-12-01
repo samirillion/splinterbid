@@ -14,7 +14,7 @@
  
  socket.on('room_made', function(msg) {
      var gameID = msg['gameID'];
-     createButton('Join Room' + gameID, makeJoinRoomFunction(gameID));
+     createButton('Join Room ' + gameID, makeJoinRoomFunction(gameID));
  });
  
  socket.on('player_num', function(msg) {
@@ -27,7 +27,7 @@
      createButton('Make Room!', createRoom);
      for (i=0; i < gameIDs.length; i++){
          var gameID = gameIDs[i];
-         createButton('Join Room' + gameID, makeJoinRoomFunction(gameID));
+         createButton('Join Room ' + gameID, makeJoinRoomFunction(gameID));
      }
  });
  
@@ -45,12 +45,4 @@
  
  function createRoom() {
      socket.emit('create_room', {});
- }
- 
- function createButton(text, clickEvent) {
-     var button = document.createElement("BUTTON");
-     var textField = document.createTextNode(text);
-     button.onclick = clickEvent;
-     button.appendChild(textField);
-     document.body.appendChild(button);
  }

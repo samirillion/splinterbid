@@ -21,3 +21,11 @@ function htmlToElements(html) {
   template.innerHTML = html;
   return template.content.childNodes;
 }
+
+function createButton(text, clickEvent) {
+  var button = document.createElement("BUTTON");
+  var textField = document.createTextNode(text);
+  button.onclick = clickEvent;
+  button.appendChild(textField);
+  document.body.appendChild(button);
+}

@@ -4,7 +4,7 @@ class Hand(object):
 
     def addCard(self, card):
         self.__hand.append(card)
-        self.__sort()
+        # self.__sort()
 
     def serializeOut(self):
         ret = []

@@ -18,7 +18,7 @@ class GameRoom(object):
         self.__id = next(GameRoom.ID_GENERATOR)
         self.__connectedUsers = set()
         self.__updateAllUsers = partial(updateAllUsersFunction, self.__id)
-        self.__game = game.Game()
+        self.__game = Game()
 
     def getGameID(self):
         return self.__id

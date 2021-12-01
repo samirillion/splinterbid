@@ -17,7 +17,7 @@ def updateAllUsersInRoom(gameID):
 
 
 def whichGameIsUserIn(userID):
-    for gameID, game in ACTIVE_GAMES.iteritems():
+    for gameID, game in ACTIVE_GAMES.items():
         if game.isUserConnected(userID):
             return gameID
 
@@ -25,7 +25,7 @@ def whichGameIsUserIn(userID):
 
 
 def leaveGame(userID):
-    for gameID, game in ACTIVE_GAMES.iteritems():
+    for gameID, game in ACTIVE_GAMES.items():
         if game.isUserConnected(userID):
             game.leave(userID)
             updateAllUsersInRoom(gameID)
@@ -63,7 +63,7 @@ def joinGame(userID, gameID):
 @app.route('/')
 def index():
     """Serve the index HTML"""
-    return render_template('index.html')
+    return render_template('table.html')
 
 
 @socketio.on('play_card')

@@ -12,7 +12,7 @@ class Trick(object):
 
     def serializeOut(self):
         trickOut = {}
-        for playerNumber, card in self.__trick.iteritems():
+        for playerNumber, card in self.__trick.items():
             trickOut[playerNumber] = card.serializeOut()
 
         info = {
