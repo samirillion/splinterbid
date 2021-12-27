@@ -1,6 +1,6 @@
 class Player(object):
     def __init__(self, hand):
-        self.__hand = hand
+        self.__hand = hand        
 
     def getPlayerState(self):
         ret = {

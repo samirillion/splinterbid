@@ -188,7 +188,6 @@ function init() {
   update_bid_panel();
 }
 
-
 /**
  * Super cool description - Socket Code
  */
@@ -226,6 +225,8 @@ function init() {
  
  socket.on('game_state', function(msg) {
      var gameState = JSON.parse(msg);
-     
+     console.log("game_state", gameState);
+     STATE.players = gameState.game.players
+     STATE.bid.bids = []
      init();
  });

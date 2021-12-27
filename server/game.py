@@ -1,4 +1,4 @@
-from constants import PLAYERS, SUIT, VALUE
+from constants import PLAYERS, SUIT, VALUE, CARDINALS
 from player import Player
 from Structures import Deck, Card, Trick
 
@@ -27,7 +27,7 @@ class Game(object):
     def getGameState(self):
         players = {}
         for playerNum, player in self.__players.items():
-            players[playerNum] = player.getPlayerState()
+            players[CARDINALS.CARDINALS[playerNum]] = player.getPlayerState()
 
         ret = {
             'players': players,

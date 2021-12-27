@@ -1,3 +1,6 @@
+class CARDINALS(object):
+    CARDINALS = ["north", "east", "south", "west"]
+
 class PLAYERS(object):
     NORTH = 0
     EAST = 1

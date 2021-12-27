@@ -8,6 +8,9 @@ class Card(object):
 
         assert suit in SUIT.RANGE
         assert value in VALUE.RANGE
+    
+    def __lt__(self, other):
+        return self.getSortRank() < other.getSortRank()
 
     def serializeOut(self):
         return [self.__value, self.__suit]
