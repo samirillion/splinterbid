@@ -4,16 +4,20 @@
 * {
   box-sizing: border-box;
   letter-spacing: 0.4px;
-  font-family: "Syne Mono", monospace;
+  font-family: "Times New Roman", serif;
 }
 hr {
   margin: 0;
 }
 h1 {
+  /* margin: 20px; */
   display: inline-block;
   background-color: rgba(235, 235, 235, 0.8);
-  margin: 0;
-  font-family: "Syne Mono", monospace;
+  margin: 20px;
+  font-family: "Times New Roman", serif;
+  color: rgb(22 51 27);
+  font-weight: 500;
+  font-variant: small-caps;
 }
 body {
   /* background-image: url("./img/table.jpg"); */
@@ -21,6 +25,29 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+body.index:before {
+  content: "";
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-image: url('img/card-bridge.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  opacity: .2;
+}
+/* body.index h1:after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  border-top: 3px green;
+  border-bottom: 3px green;
+} */
 a.svg-anchor-tag {
   position: fixed;
   display: inline-block;
@@ -41,7 +68,7 @@ object.create-table {
   width: 100%;
 }
 .splinter-bid-marquee {
-  width: 50%;
+  width: 20%;
   position: fixed;
   left: 30%;
 }
@@ -126,7 +153,7 @@ object.create-table {
 }
 #right,
 #left {
-  width: 22%;
+  width: 15%;
 }
 .center {
   display: flex;
@@ -145,7 +172,7 @@ object.create-table {
   height: 165px;
   position: relative;
   display: inline-block;
-  margin: -30px -40px -30px -40px;
+  margin: -61px -40px -30px -40px;
   transition: 0.2s all;
 }
 .front,
@@ -170,15 +197,21 @@ object.create-table {
   background-position: -22px -2310px;
   background-size: 440%;
 }
-#left .front,
-#right .front,
+
 #top .front {
   transform: rotateY(180deg);
 }
-#left .back,
-#right .back,
+#left .front,
+#right .front {
+  transform: rotateY(180deg) rotate(90deg);
+}
 #top .back {
   transform: rotateY(0deg);
+  /* transform: rotateY(0deg) rotate(90deg); */
+}
+#left .back,
+#right .back {
+  transform: rotateY(0deg) rotate(90deg);
 }
 .once {
   z-index: 1;
@@ -421,7 +454,7 @@ object.create-table {
   background: silver;
 }
 
-.bid {
+/* .bid {
   min-width: 15%;
   text-align: center;
   font-size: 25px;
@@ -430,7 +463,7 @@ object.create-table {
   background-position: -8px -3px;
   margin-right: 2px;
   background-color: white;
-}
+} */
 button:disabled,
 button[disabled] {
   opacity: .8;
@@ -448,10 +481,10 @@ button[disabled] {
 .bid.hearts, .bid.diamonds {
   background-color: hsl(0deg 100% 90%);
 }
-.dbl, .rdbl, .pass {
+/* .dbl, .rdbl, .pass {
   filter: invert(1);
   background-color: white;
-}
+} */
 .pass {
   width: 50%;
 }
@@ -474,7 +507,7 @@ button[disabled] {
   width: 100%;
   height: auto;
 }
-.bid {
+/* .bid {
   background-image: url("https://assets.codepen.io/1579014/bids.png");
   background-size: 475px;
   background-repeat: no-repeat;
@@ -536,4 +569,4 @@ button[disabled] {
 .bid.rdbl {
   background-position: -313px -3px;
   width: 80px;
-}
+} */

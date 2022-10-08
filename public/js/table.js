@@ -188,9 +188,6 @@ function init() {
   update_bid_panel();
 }
 
-/**
- * Super cool description - Socket Code
- */
  var socket = io.connect('http://' + document.domain + ':' + location.port);
  var playerNum = null;
  

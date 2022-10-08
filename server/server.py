@@ -1,7 +1,7 @@
 from flask import Flask, render_template, send_from_directory, request
 from flask_socketio import SocketIO, join_room, leave_room, emit, send
 from GameCode import GameRoom
-
+import sqlite3
 
 # Initialize Flask
 app = Flask(__name__,
@@ -9,6 +9,8 @@ app = Flask(__name__,
             template_folder="../public/views")
 socketio = SocketIO(app)
 ACTIVE_GAMES = {}  # dict to track active Games
+conn = sqlite3.connect('data/sqlite.db')
+
 
 
 def updateAllUsersInRoom(gameID):
@@ -63,7 +65,7 @@ def joinGame(userID, gameID):
 @app.route('/')
 def index():
     """Serve the index HTML"""
-    return render_template('table.html')
+    return render_template('index.html')
 
 
 @socketio.on('play_card')
